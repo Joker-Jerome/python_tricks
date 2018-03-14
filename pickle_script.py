@@ -1,5 +1,6 @@
 import pickle
 
+a = "pickle_string"
 file_Name = "testfile"
 # open the file for writing
 fileObject = open(file_Name,'wb') 
