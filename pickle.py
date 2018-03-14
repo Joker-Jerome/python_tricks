@@ -11,7 +11,7 @@ pickle.dump(a,fileObject)
 # here we close the fileObject
 fileObject.close()
 # we open the file for reading
-fileObject = open(file_Name,'r')  
+fileObject = open(file_Name,'rb')  
 # load the object from the file into var b
 b = pickle.load(fileObject)  
 
