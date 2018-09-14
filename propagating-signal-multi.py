@@ -5,6 +5,7 @@ import numpy
 import time
 import multiprocessing
 import sys
+sys.stdout.flush()
 
 start = time.time()
 
@@ -34,6 +35,7 @@ def init_process(y_to_share, new_y_to_share):
 # our rule for reaction-diffusion
 def advance(dt, y, new_y, j):
     # diffusion via forward Euler
+    sys.stdout.flush()
     new_y[j] += dt * (D * (y[j - 1] - 2 * y[j] + y[(j + 1) % size]))
     # reaction via forward Euler
     new_y[j] += dt * -y[j] * (1 - y[j]) * (alpha - y[j])
@@ -51,7 +53,7 @@ for t in numpy.arange(0, 100 + dt, dt):
     if t % 20 == 0:
         pyplot.plot(y, label='t = %g' % t)
     tmp = [process_pool.apply(advance, args = (dt, y, new_y, x,)) for x in x_vec]
-    tmp = [process_pool.apply(advance, args = (dt, y, new_y, x,)) for x in x_vec]
+    y[:] = new_y[:]
 
 
 print('calculation: {} s'.format(time.time() - start))

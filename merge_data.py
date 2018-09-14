@@ -25,7 +25,7 @@ def get_matrix(input_table, predictor_list):
 			basic_list = line_list[:4]
 			event_list = line_list[4:]
 			match_idx = match_list(event_list, predictor_list)
-			tmp_array = np.zeros(len(predictor_list), dtype = int)
+			tmp_array = np.zeros(len(predictor_list), dtype)
 			tmp_array[match_idx] = 1
 			output_list.append(basic_list + tmp_array.astype(str).tolist())
 	return(output_list)

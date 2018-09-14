@@ -1,0 +1,3 @@
+chromosome	start	end	score
+GL000008.2	54	94	0.006467
+GL000008.2	94	106	0.008323

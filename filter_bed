@@ -1,0 +1,23 @@
+# module
+import sys
+
+# arguments passing
+args = sys.argv
+chr = args[1]
+start = int(args[2])
+end = int(args[3])
+infile = args[4]
+outfile = args[5]
+print(infile)
+
+# read the file and filter
+fo = open(outfile, "w")
+with open(infile, "r") as fi:
+	for line in fi:
+		tmp_line = line.strip().split()
+		tmp_chr = tmp_line[0]
+		tmp_start = int(tmp_line[1])
+		tmp_end = int(tmp_line[2])
+		tmp_score = tmp_line[3]
+		if tmp_chr == chr and tmp_start > start and tmp_end < end:
+			fo.write("\t".join(tmp_line) + "\n")
