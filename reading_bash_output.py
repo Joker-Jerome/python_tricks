@@ -2,7 +2,7 @@ import sys
 import subprocess
 import pandas as pd
 
-cmd = ['ls -l']
+cmd = ['ls','-l']
 a = subprocess.Popen(cmd, stdout=subprocess.PIPE)
 
 if sys.version_info[0] < 3: 
